@@ -3,43 +3,52 @@ import argparse
 
 
 def get_fonts():
-    esc = "\u001b["
+    esc = "\u001b[38;5;"
     fonts = {}
-    for i in range(30, 38):
-        fonts[str(i - 30)] = esc + str(i) + "m"
-    fonts["8"] = "\u001b[0m"
+    for i in range(0, 16):
+        for j in range(0, 16):
+            code = str(i * 16 + j)
+            fonts[code] = esc + code + "m"
+    fonts["256"] = "\u001b[0m"
     return fonts
 
 
 def get_bold_fonts():
-    esc = "\u001b["
+    esc = "\u001b[38;5;"
     fonts = {}
-    for i in range(30, 38):
-        fonts["B" + str(i - 30)] = esc + str(i) + ";1m"
-    fonts["B8"] = "\u001b[1m"
+    for i in range(0, 16):
+        for j in range(0, 16):
+            code = str(i * 16 + j)
+            fonts["B" + code] = esc + code + ";1m"
+    fonts["B256"] = "\u001b[1m"
     return fonts
 
 
 def get_backgrounds():
-    esc = "\u001b["
+    esc = "\u001b[48;5;"
     bgs = {}
-    for i in range(40, 48):
-        bgs[str(i - 40)] = esc + str(i) + "m"
-    bgs["8"] = "\u001b[0m"
+    for i in range(0, 16):
+        for j in range(0, 16):
+            code = str(i * 16 + j)
+            bgs[code] = esc + code + "m"
+    bgs["256"] = "\u001b[0m"
     return bgs
 
 
 def display(_dict):
-    line = ""
-    for key in _dict:
-        line += _dict[key] + " " + key.ljust(4) + " "
-    line += "\u001b[0m"
-    print(line)
+    keys = list(_dict.keys())
+    for i in range(0, 16):
+        line = ""
+        for j in range(0, 16):
+            key = keys[i * 16 + j]
+            line += _dict[key] + " " + key.ljust(4) + " "
+        print(line + "\u001b[0m")
+    print(_dict[keys[-1]] + " " + keys[-1].ljust(4) + "\u001b[0m")
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="A tool for looking up ANSI escape code colors (8 colors)"
+        description="A tool for looking up ANSI escape code colors (256 colors)"
     )
     parser.add_argument(
         "-f",
@@ -60,7 +69,7 @@ def main():
         type=str,
         nargs="?",
         default="",
-        help="Specicfy font color by a label, 8 represents default color, e.g. 3, B3, D",
+        help="Specicfy font color by a label, 256 represents default color, e.g. 3, B3, D",
     )
     parser.add_argument(
         "background",
