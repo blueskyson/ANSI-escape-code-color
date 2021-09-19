@@ -69,7 +69,7 @@ def main():
         type=str,
         nargs="?",
         default="",
-        help="Specicfy font color by a label, 256 represents default color, e.g. 3, B3, D",
+        help="Specicfy font color by a label, 256 represents default color, e.g. 3, B3",
     )
     parser.add_argument(
         "background",

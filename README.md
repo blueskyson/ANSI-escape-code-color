@@ -4,8 +4,6 @@
 
 A tool for looking up terminal color codes. 
 
-![](./screenshot.png)
-
 ## Usage
 
 ```
@@ -23,3 +21,9 @@ optional arguments:
   -b, --show-background
                         Display background colors
 ```
+
+## Screenshots
+
+![](./aecc8.png)
+
+![](./aecc256.png)
