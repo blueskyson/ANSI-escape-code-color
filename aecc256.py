@@ -104,16 +104,20 @@ def main():
             if args.font not in bfonts:
                 print("Invalid font label.")
                 return
+            if args.font == "B256":
+                result= "\\u001b[1m"
+            else:
+                result = "\\u001b[38;5;" + str(int(args.font[1:])) + ";1m"
             demo = bfonts[args.font]
-            num = 0 if args.font == "B8" else int(args.font[1:]) + 30
-            result = "\\u001b[" + str(num) + ";1m"
         else:
             if args.font not in fonts:
                 print("Invalid font label.")
                 return
-            num = 0 if args.font == "8" else int(args.font) + 30
+            if args.font == "256":
+                result= "\\u001b[0m"
+            else:
+                result = "\\u001b[38;5;" + args.font + "m"
             demo = fonts[args.font]
-            result = "\\u001b[" + str(num) + "m"
     else:
         return
 
@@ -121,9 +125,9 @@ def main():
         if args.background not in backs:
             print("Invalid background label.")
             return
-        num = 0 if args.background == "8" else int(args.background) + 40
         demo += backs[args.background]
-        result += "\\u001b[" + str(num) + "m"
+        if args.background != "256":
+            result += "\\u001b[48;5;" + args.background + "m"
 
     demo += " " + args.font
     if args.background != "":
