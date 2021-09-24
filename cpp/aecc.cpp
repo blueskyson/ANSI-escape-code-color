@@ -1,3 +1,8 @@
+/*
+ * MIT License
+ * Copyright (c) 2021 Lin Cheng Chieh <https://github.com/blueskyson>
+ */
+
 #include "argparse.hpp"
 #include <unordered_map>
 #include <iomanip>
@@ -48,13 +53,13 @@ void display(unordered_map<string, string> map, string font_color = "\u001b[0m")
     for (int i = 0; i < 8; i++) {
         string key = std::to_string(i);
         cout << map[key] << ' ' << std::left
-        << std::setw(3) << key << ' ';
+             << std::setw(3) << key << ' ';
     }
     cout << reset << "  " << font_color;
     for (int i = 8; i < 16; i++) {
         string key = std::to_string(i);
         cout << map[key] << ' ' << std::left
-        << std::setw(3) << key << ' ';
+             << std::setw(3) << key << ' ';
     }
     cout << reset << "\n\n";
 
@@ -65,8 +70,8 @@ void display(unordered_map<string, string> map, string font_color = "\u001b[0m")
             for (int l = 0; l < 6; l++) {
                 string key = std::to_string(index);
                 cout << map[key] << ' ' << std::left
-                << std::setw(3) << key << ' ';
-                index++;                    
+                     << std::setw(3) << key << ' ';
+                index++;
             }
             cout << reset << "  ";
         }
@@ -74,7 +79,7 @@ void display(unordered_map<string, string> map, string font_color = "\u001b[0m")
         index += 18;
     }
     cout << '\n';
-    
+
     index = 34;
     for (int j = 0; j < 6; j++) {
         for (int k = 0; k < 3; k++) {
@@ -82,8 +87,8 @@ void display(unordered_map<string, string> map, string font_color = "\u001b[0m")
             for (int l = 0; l < 6; l++) {
                 string key = std::to_string(index);
                 cout << map[key] << ' ' << std::left
-                << std::setw(3) << key << ' ';
-                index++;                    
+                     << std::setw(3) << key << ' ';
+                index++;
             }
             cout << reset << "  ";
         }
@@ -95,13 +100,13 @@ void display(unordered_map<string, string> map, string font_color = "\u001b[0m")
     for (int i = 232; i < 244; i++) {
         string key = std::to_string(i);
         cout << map[key] << ' ' << std::left
-        << std::setw(3) << key << ' ';
+             << std::setw(3) << key << ' ';
     }
     cout << reset << '\n' << font_color;
     for (int i = 244; i < 256; i++) {
         string key = std::to_string(i);
         cout << map[key] << ' ' << std::left
-        << std::setw(3) << key << ' ';
+             << std::setw(3) << key << ' ';
     }
 
     cout << "\u001b[0m" << endl;;
@@ -162,7 +167,7 @@ int main(int argc, char* argv[]) {
     unordered_map<string, string> fonts = get_fonts();
     unordered_map<string, string> bfonts = get_bold_fonts();
     unordered_map<string, string> backgrounds = get_backgrounds();
-    
+
     if (show_font) {
         display(fonts);
     }
@@ -194,14 +199,14 @@ int main(int argc, char* argv[]) {
             } else {
                 result = "\\u001b[38;5;" + font + "m";
             }
-            demo = fonts[font];   
+            demo = fonts[font];
         }
     } else
         return 0;
 
     if (background != "") {
         if (!is_label(background.c_str())) {
-            cout << "Invalid font label." << endl;
+            cout << "Invalid background label." << endl;
             exit(0);
         }
         demo += backgrounds[background];
@@ -214,7 +219,7 @@ int main(int argc, char* argv[]) {
     if (background != "")
         demo += ';' + background;
     demo += " \u001b[0m: ";
-    
+
     cout << demo << result << endl;
     return 0;
 }

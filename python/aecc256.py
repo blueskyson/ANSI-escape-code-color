@@ -1,3 +1,7 @@
+# MIT License
+# Copyright (c) 2021 Lin Cheng Chieh <https://github.com/blueskyson>
+
+
 import sys
 import argparse
 
