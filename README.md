@@ -4,30 +4,47 @@
 
 A tool for looking up terminal color codes. 
 
+## Screenshots
+
+![](background.png)
+
+![](font.png)
+
+![](usage.png)
+
+## Build
+
+C++
+
+```
+$ cd cpp
+$ make
+$ ./aecc
+```
+
+Python
+
+```
+$ python python/aecc256.py
+```
+
 ## Usage
 
 ```
-usage: aecc8.py [-h] [-f] [-b] [font] [background]
+Usage: [options] font background 
 
-A tool for looking up ANSI escape code colors (8 colors)
+ANSI escape code color lookup (256 colors)
 
-positional arguments:
-  font                  Specicfy font color by a label, 8 represents default color, e.g. 3, B3
-  background            Specicfy background color by a label, e.g. 5
+Positional arguments:
+font            	Specicfy font color by a label (e.g. 3), B[label] represents 
+                    bold font (e.g. B122), 256 represents default color 
+background      	Specicfy background color by a label (e.g. 5), 256 represents
+                    default color 
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -f, --show-font       Display font colors
-  -b, --show-background
-                        Display background colors
+Optional arguments:
+-h --help       	shows help message and exits
+-v --version    	prints version information and exits
+-f --font       	Display font labels 
+-b --background 	Display background labels 
 ```
 
-## Screenshots
-
-### aecc8.py
-
-![](./aecc8.png)
-
-### aecc256.py
-
-![](./aecc256.png)
