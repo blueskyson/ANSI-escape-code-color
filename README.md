@@ -6,9 +6,15 @@ A tool for looking up terminal color codes.
 
 ## Screenshots
 
+Show background color labels:
+
 ![](background.png)
 
+Show font color labels:
+
 ![](font.png)
+
+Get ANSI escape codes by labels.
 
 ![](usage.png)
 
