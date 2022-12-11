@@ -64,14 +64,14 @@ def main():
         type=str,
         nargs="?",
         default="",
-        help="Specicfy font color by a label, 8 represents default color, e.g. 3, B3",
+        help="Specicfy font color by a number (e.g. 3). B[number] represents bold font (e.g. B4).",
     )
     parser.add_argument(
         "background",
         type=str,
         nargs="?",
         default="",
-        help="Specicfy background color by a label, e.g. 5",
+        help="Specicfy background color by a number, e.g. 5",
     )
     args = parser.parse_args()
 

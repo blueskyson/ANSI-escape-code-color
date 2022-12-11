@@ -42,15 +42,13 @@ Usage: [options] font background
 ANSI escape code color lookup (256 colors)
 
 Positional arguments:
-font                Specicfy font color by a label (e.g. 3), B[label] represents 
-                    bold font (e.g. B122), 256 represents default color 
-background          Specicfy background color by a label (e.g. 5), 256 represents
-                    default color 
+font                    Specicfy font color by a number (e.g. 3). B[number] represents bold font (e.g. B122). 256 is the default color. 
+background              Specicfy background color by a number (e.g. 5). 256 is the default background color. 
 
 Optional arguments:
--h --help           shows help message and exits
--v --version        prints version information and exits
--f --font           Display font labels 
--b --background     Display background labels 
+-h --help               shows help message and exits
+-v --version            prints version information and exits
+-f --font               Display font numbers. 
+-b --background         Display background numbers.
 ```
 

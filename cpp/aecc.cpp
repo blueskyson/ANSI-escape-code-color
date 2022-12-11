@@ -129,20 +129,20 @@ bool is_label(const char* c) {
 int main(int argc, char* argv[]) {
     argparse::ArgumentParser args("ANSI escape code color lookup (256 colors)");
     args.add_argument("font")
-    .help("Specicfy font color by a label (e.g. 3), B[label] represents bold font (e.g. B122), 256 represents default color")
+    .help("Specicfy font color by a number (e.g. 3). B[number] represents bold font (e.g. B122). 256 is the default color.")
     .default_value(std::string(""));
 
     args.add_argument("background")
-    .help("Specicfy background color by a label (e.g. 5), 256 represents default color")
+    .help("Specicfy background color by a number (e.g. 5). 256 is the default background color.")
     .default_value(std::string(""));
 
     args.add_argument("-f", "--font")
-    .help("Display font labels")
+    .help("Display font numbers.")
     .default_value(false)
     .implicit_value(true);
 
     args.add_argument("-b", "--background")
-    .help("Display background labels")
+    .help("Display background numbers.")
     .default_value(false)
     .implicit_value(true);
 
